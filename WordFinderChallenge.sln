@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderChallenge", "WordFinderChallenge\WordFinderChallenge.csproj", "{08E59C4F-A840-446B-9FFB-B3BE82E6E000}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderChallenge.Console", "WordFinderChallenge\WordFinderChallenge.Console.csproj", "{08E59C4F-A840-446B-9FFB-B3BE82E6E000}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinderChallenge.Application", "WordFinderChallenge.Application\WordFinderChallenge.Application.csproj", "{32B217FC-4E40-408B-8889-4DF7E384A0F9}"
 EndProject
