@@ -28,6 +28,7 @@
             }
 
             return foundWords.OrderByDescending(kvp => kvp.Value)
+                             .ThenBy(kv => kv.Key)
                              .Take(10)
                              .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }

@@ -8,6 +8,9 @@ namespace WordFinderChallenge.Infrastructure
 
         public static List<string> GenerateMatrix(int size, List<string> possibleWords, int maxWords = 10)
         {
+            if (size > 64)
+                throw new ArgumentException("Matrix size cannot exceed 64x64.");
+
             var matrix = new char[size, size];
 
             for (int r = 0; r < size; r++)
