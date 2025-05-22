@@ -1,4 +1,6 @@
-﻿namespace WordFinderChallenge.Domain
+﻿using System.Text;
+
+namespace WordFinderChallenge.Domain
 {
     public class WordFinder
     {
@@ -36,32 +38,32 @@
         private int CountWordOccurrences(string word)
         {
             int count = 0;
-            int len = word.Length;
 
-            for (int r = 0; r < _rows; r++)
-            {
-                for (int c = 0; c <= _cols - len; c++)
-                {
-                    var slice = _matrix[r].Substring(c, len);
-                    if (slice == word) count++;
-                }
-            }
+            foreach (var row in _matrix)
+                count += CountOccurrences(row, word);
 
             for (int c = 0; c < _cols; c++)
             {
-                for (int r = 0; r <= _rows - len; r++)
-                {
-                    bool match = true;
-                    for (int i = 0; i < len; i++)
-                    {
-                        if (_matrix[r + i][c] != word[i])
-                        {
-                            match = false;
-                            break;
-                        }
-                    }
-                    if (match) count++;
-                }
+                var colBuilder = new StringBuilder();
+                for (int r = 0; r < _rows; r++)
+                    colBuilder.Append(_matrix[r][c]);
+
+                string column = colBuilder.ToString();
+                count += CountOccurrences(column, word);
+            }
+
+            return count;
+        }
+
+        private int CountOccurrences(string text, string word)
+        {
+            int count = 0;
+            int index = 0;
+
+            while ((index = text.IndexOf(word, index, StringComparison.Ordinal)) != -1)
+            {
+                count++;
+                index++;
             }
 
             return count;
